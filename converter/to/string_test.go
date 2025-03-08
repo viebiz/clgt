@@ -2,10 +2,10 @@ package to
 
 import (
 	"fmt"
-	"github.com/viebiz/clgt/types"
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	"github.com/viebiz/clgt/types"
 )
 
 func TestString(t *testing.T) {

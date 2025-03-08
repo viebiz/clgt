@@ -19,3 +19,7 @@ type IntNumber interface {
 type UIntNumber interface {
 	uint | uint8 | uint16 | uint32 | uint64
 }
+
+type Struct interface {
+	struct{}
+}

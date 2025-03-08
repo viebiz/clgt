@@ -2,13 +2,15 @@ package to
 
 import (
 	"fmt"
+
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	"github.com/viebiz/clgt/types"
 )
 
 func TestPtr(t *testing.T) {
-	type arg[TType Type] struct {
+	type arg[TType types.PrimitiveType] struct {
 		givenValue TType
 		expResult  *TType
 	}
