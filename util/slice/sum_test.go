@@ -1,93 +1,93 @@
-package to
+package slice
 
 import (
 	"fmt"
-	"github.com/viebiz/clgt/types"
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	"github.com/viebiz/clgt/types"
 )
 
-func TestString(t *testing.T) {
-	type arg[TType types.Number] struct {
-		givenValue TType
-		expResult  string
+func TestSum(t *testing.T) {
+	type arg[TNumber types.Number] struct {
+		givenItems []TNumber
+		expResult  TNumber
 	}
+
 	dataTypes := map[string]interface{}{
 		"int": map[string]arg[int]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []int{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"int8": map[string]arg[int8]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []int8{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"int16": map[string]arg[int16]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []int16{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"int32": map[string]arg[int32]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []int32{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"int64": map[string]arg[int64]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []int64{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"uint": map[string]arg[uint]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []uint{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"uint8": map[string]arg[uint8]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []uint8{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"uint16": map[string]arg[uint16]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []uint16{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"uint32": map[string]arg[uint32]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []uint32{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"uint64": map[string]arg[uint64]{
 			"ok": {
-				givenValue: 1,
-				expResult:  "1",
+				givenItems: []uint64{1, 2, 3, 4, 5},
+				expResult:  15,
 			},
 		},
 		"float32": map[string]arg[float32]{
 			"ok": {
-				givenValue: 1.100,
-				expResult:  "1.1",
+				givenItems: []float32{1.2, 2.2, 3.2, 4.2, 5.2},
+				expResult:  16,
 			},
 		},
 		"float64": map[string]arg[float64]{
 			"ok": {
-				givenValue: 1.100,
-				expResult:  "1.1",
+				givenItems: []float64{1.2, 2.2, 3.2, 4.2, 5.2},
+				expResult:  16,
 			},
 		},
 	}
-
 	for dataType, testCases := range dataTypes {
 		switch dataType {
 		case "int":
@@ -99,7 +99,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -114,7 +114,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -129,7 +129,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -144,7 +144,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -159,7 +159,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -174,7 +174,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -189,7 +189,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -204,7 +204,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -219,7 +219,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -234,7 +234,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -249,7 +249,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
@@ -264,7 +264,7 @@ func TestString(t *testing.T) {
 					// Given
 
 					// When
-					result := String(tc.givenValue)
+					result := Sum(tc.givenItems)
 
 					// Then
 					require.Equal(t, tc.expResult, result)
