@@ -2,14 +2,13 @@ package to
 
 import (
 	"fmt"
-
-	"github.com/viebiz/clgt/types"
 )
 
-func Cast[TType types.Struct](val interface{}) (TType, error) {
-	result, ok := val.(TType)
+// Cast converts a value to a struct.
+func Cast[TType any](v interface{}) (TType, error) {
+	result, ok := v.(TType)
 	if !ok {
-		return TType{}, fmt.Errorf("cannot cast %v to %T", val, TType{})
+		return result, fmt.Errorf("cannot cast %T to %T", v, result)
 	}
 	return result, nil
 }
