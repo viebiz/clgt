@@ -1,0 +1,20 @@
+package types
+
+const (
+	MinInt8 = -128
+	MaxInt8 = 127
+
+	MinInt16 = -32768
+	MaxInt16 = 32767
+
+	MinInt32 = -2147483648
+	MaxInt32 = 2147483647
+
+	MinInt64 = -9223372036854775808
+	MaxInt64 = 9223372036854775807
+
+	MaxUint8  = 255
+	MaxUint16 = 65535
+	MaxUint32 = 4294967295
+	MaxUint64 = 18446744073709551615
+)

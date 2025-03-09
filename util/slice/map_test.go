@@ -2,7 +2,6 @@ package slice
 
 import (
 	"fmt"
-	"math"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -37,6 +36,8 @@ func TestMap(t *testing.T) {
 			"ok": {
 				givenItems: []float32{0.200, 1.200, 2.200},
 				givenMapper: func(item float32) float64 {
+					//val := to.String(item)
+
 					return float64(item)
 				},
 				expItems: []float64{0.200, 1.200, 2.200},
@@ -77,12 +78,7 @@ func TestMap(t *testing.T) {
 					items := Map(tc.givenItems, tc.givenMapper)
 
 					// Then
-					var almostEqual = func(a, b, epsilon float64) bool {
-						return math.Abs(a-b) < epsilon
-					}
-					for i := range items {
-						require.True(t, almostEqual(items[i], tc.expItems[i], 1e-6)) // 1e-6 = 10^-6 is the epsilon
-					}
+					require.Equal(t, tc.expItems, items)
 				})
 			}
 		case "struct":

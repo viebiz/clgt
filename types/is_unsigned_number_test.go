@@ -1,23 +1,53 @@
 package types
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
 
 func TestIsUnsignedNumber(t *testing.T) {
-	type args struct {
-		val interface{}
+	type arg struct {
+		givenValue interface{}
+		expResult  bool
 	}
-	tests := []struct {
-		name string
-		args args
-		want bool
-	}{
-		// TODO: Add test cases.
+
+	tcs := map[string]arg{
+		"int": {
+			givenValue: 1,
+			expResult:  false,
+		},
+		"uint": {
+			givenValue: uint(1),
+			expResult:  true,
+		},
+		"uint8": {
+			givenValue: uint8(1),
+			expResult:  true,
+		},
+		"uint16": {
+			givenValue: uint16(1),
+			expResult:  true,
+		},
+		"uint32": {
+			givenValue: uint32(1),
+			expResult:  true,
+		},
+		"uint64": {
+			givenValue: uint64(1),
+			expResult:  true,
+		},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := IsUnsignedNumber(tt.args.val); got != tt.want {
-				t.Errorf("IsUnsignedNumber() = %v, want %v", got, tt.want)
-			}
+
+	for scenario, tc := range tcs {
+		t.Run(scenario, func(t *testing.T) {
+			// Given
+
+			// When
+			result := IsUnsignedNumber(tc.givenValue)
+
+			// Then
+			require.Equal(t, tc.expResult, result)
 		})
 	}
 }

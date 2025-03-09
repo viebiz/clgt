@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// Cast converts a value to a struct.
+// Cast converts a value to another type.
 func Cast[TType any](v interface{}) (TType, error) {
 	result, ok := v.(TType)
 	if !ok {
